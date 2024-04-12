@@ -1,19 +1,25 @@
 <script>
 import axios from "axios";
 
+import ProjectCard from "./components/ProjectCard.vue";
+
 export default {
   data() {
     return {
       title: "Hello world!",
-      tech_badges: [],
+      projects: [],
     };
+  },
+
+  components: {
+    ProjectCard,
   },
 
   methods: {
     fecthProjects() {
       axios.get(`http://127.0.0.1:8000/api/projects`).then((res) => {
         console.log(res.data.data);
-        this.tech_badges = res.data.data[0].technologies_badges;
+        this.projects = res.data.data;
       });
     },
   },
@@ -27,7 +33,12 @@ export default {
 <template>
   <div class="container">
     <h1>{{ title }}</h1>
-    <div></div>
+    <div class="row g-3">
+      <project-card
+        v-for="project in projects"
+        :project="project"
+      ></project-card>
+    </div>
   </div>
 </template>
 
