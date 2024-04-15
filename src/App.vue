@@ -18,7 +18,8 @@ export default {
   <app-header />
 
   <div class="container">
-    <app-projects-index />
+    <router-view></router-view>
+    <!-- <app-projects-index /> -->
   </div>
 </template>
 
