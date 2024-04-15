@@ -1,4 +1,4 @@
-## Esercizio di oggi: Laravel Boolfolio - API
+## Esercizio di oggi(12/04/24): Laravel Boolfolio - API
 
 Continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo.
 L’esercizio di oggi è suddiviso in milestone ed è importante che ne seguiate l’ordine.
@@ -32,3 +32,9 @@ Creiamo un nuovo componente ProjectCard, che corrisponde ad una card per visuali
 ### Bonus:
 
 Gestire la paginazione dei risultati
+
+## Esercizio di oggi (15/04/24)
+
+Oggi continuate sulla repo precedente!
+
+Aggiungete il router e la pagina di dettaglio - comprensiva di API sul backend.
