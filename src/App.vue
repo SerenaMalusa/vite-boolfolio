@@ -1,44 +1,24 @@
 <script>
-import axios from "axios";
-
-import ProjectCard from "./components/ProjectCard.vue";
+import AppHeader from "./components/layout/AppHeader.vue";
+import AppProjectsIndex from "./components/pages/AppProjectsIndex.vue";
 
 export default {
   data() {
-    return {
-      title: "Hello world!",
-      projects: [],
-    };
+    return {};
   },
 
   components: {
-    ProjectCard,
-  },
-
-  methods: {
-    fecthProjects() {
-      axios.get(`http://127.0.0.1:8000/api/projects`).then((res) => {
-        console.log(res.data.data);
-        this.projects = res.data.data;
-      });
-    },
-  },
-
-  mounted() {
-    this.fecthProjects();
+    AppProjectsIndex,
+    AppHeader,
   },
 };
 </script>
 
 <template>
+  <app-header />
+
   <div class="container">
-    <h1>{{ title }}</h1>
-    <div class="row g-3">
-      <project-card
-        v-for="project in projects"
-        :project="project"
-      ></project-card>
-    </div>
+    <app-projects-index />
   </div>
 </template>
 
