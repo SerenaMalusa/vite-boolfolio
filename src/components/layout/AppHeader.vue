@@ -1,4 +1,4 @@
-<script setup></script>
+<script></script>
 
 <template>
   <nav class="navbar bg-body-tertiary">
@@ -7,6 +7,14 @@
       <router-link :to="{ name: 'home' }" class="navbar-brand"
         >Home</router-link
       >
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <router-link :to="{ name: 'projects.index' }"
+            >All projects</router-link
+          >
+        </li>
+      </ul>
     </div>
   </nav>
 </template>

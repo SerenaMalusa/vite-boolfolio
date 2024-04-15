@@ -5,7 +5,7 @@ import ProjectCard from "../cards/ProjectCard.vue";
 export default {
   data() {
     return {
-      title: "Hello world!",
+      title: "Welcome to my projects!",
       projects: [],
     };
   },
@@ -17,7 +17,7 @@ export default {
   methods: {
     fecthProjects() {
       axios.get(`http://127.0.0.1:8000/api/projects`).then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         this.projects = res.data.data;
       });
     },
@@ -30,9 +30,13 @@ export default {
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <h1 class="my-5">{{ title }}</h1>
   <div class="row g-3">
-    <project-card v-for="project in projects" :project="project"></project-card>
+    <project-card
+      v-for="project in projects"
+      :project="project"
+      :isDetail="false"
+    ></project-card>
   </div>
 </template>
 
