@@ -7,6 +7,7 @@ export default {
     return {
       title: "Welcome to my projects!",
       projects: [],
+      links: [],
     };
   },
 
@@ -15,10 +16,11 @@ export default {
   },
 
   methods: {
-    fecthProjects() {
-      axios.get(`http://127.0.0.1:8000/api/projects`).then((res) => {
-        // console.log(res.data.data);
+    fecthProjects(endpoint = `http://127.0.0.1:8000/api/projects`) {
+      axios.get(endpoint).then((res) => {
+        // console.log(res.data.links);
         this.projects = res.data.data;
+        this.links = res.data.links;
       });
     },
   },
@@ -31,6 +33,22 @@ export default {
 
 <template>
   <h1 class="my-5">{{ title }}</h1>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li v-for="(link, i) in links" class="page-item">
+        <a
+          @click="fecthProjects(link.url)"
+          v-html="link.label"
+          :class="{
+            active: link.active,
+            disabled: !link.url,
+          }"
+          class="page-link"
+        ></a>
+      </li>
+    </ul>
+  </nav>
+
   <div class="row g-3">
     <project-card
       v-for="project in projects"
